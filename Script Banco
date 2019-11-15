@@ -1,0 +1,19 @@
+******** Criar banco chamado ator e ai sim fazer a tabela
+
+
+
+use ator;
+CREATE TABLE `ator`.`usuario` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(45) NOT NULL,
+  `nivel_acesso` INT NOT NULL,
+  `documento` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`));
+
+
+select * from usuario
+
+drop table usuario;
