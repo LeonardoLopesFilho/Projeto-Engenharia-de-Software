@@ -29,7 +29,7 @@ class usuario_model extends CI_Model
         return $this->db->delete('usuario', ['id_usuario' => $id]);
     }
 
-    public function logarUsuarios($username)
+    public function logarUsuarios($username,$senha,$email)
     {
         $usuario =$this->db->get_where('usuario', ['username' => $username]);
         $senha =$this->db->get_where('usuario', ['senha' => $senha]);
