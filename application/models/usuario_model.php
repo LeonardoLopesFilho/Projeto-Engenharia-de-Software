@@ -31,9 +31,7 @@ class usuario_model extends CI_Model
 
     public function logarUsuarios($username,$senha,$email)
     {
-        $usuario =$this->db->get_where('usuario', ['username' => $username]);
-        $senha =$this->db->get_where('usuario', ['senha' => $senha]);
-        $email =$this->db->get_where('usuario', ['email' => $email]);
+        $usuario =$this->db->get_where('usuario', ['username' => $username,'senha' => $senha,'email' => $email]);
         return $usuario;
          
     }
