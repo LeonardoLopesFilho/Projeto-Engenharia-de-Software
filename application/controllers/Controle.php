@@ -30,7 +30,20 @@ class Controle extends CI_Controller
     {
         $this->load->view('formPedido'); 
     }
-
+    public function editar(){
+        $id =$_GET['id'] ?? '';
+        $this->load->model('produto_model');
+        $produto = $this->produto_model->listaProduto($id);
+        //echo '<pre>';
+        //print_r($produto);
+        //echo '</pre>';
+        $this->load->view('formeditar',$produto);
+    }
+    public function salvar($id){
+        $this->load->model('produto_model');
+        $this->produto_model->salvar($id);
+        header("location:/controle/listaProduto?user={$username}");//retorna pra o index
+    }
     public function cliente()
     {
         $this->load->view('formCliente'); 

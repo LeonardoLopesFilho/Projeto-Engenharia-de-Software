@@ -35,6 +35,19 @@ class produto_model extends CI_Model
     {
         return $this->db->delete('produto', ['id_produto' => $id]);
     }
+    public function salvar($id){
+        $id = $this->input->post('id_produto');
+        $produto = array(
+            'nome' => $this->input->post('nome'),
+            'descricao' => $this->input->post('descricao'),
+            'data_validade' => $this->input->post('data_validade'),
+            'quantidade' => $this->input->post('quantidade'),
+            'valor' => $this->input->post('valor'),
+        );
+
+        $this->db->where('id_produto', $id);
+        return $this->db->update('produtos' ,$produto);
+    }
 
     // Username esperado no parametro é um array associativo
     public function loginVendas( $username, $password )

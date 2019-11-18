@@ -79,7 +79,7 @@
         <td><?= $produto->fornecedor ?></td>
         <td><?= $produto->flag ?></td>
         <td><?= $produto->username ?></td>
-        <td><a href="/controle/autenticaProduto?tipo=0&id=<?= $produto->id_produto ?>">alterar</a></td>
+        <td><a href="/controle/editar?id=<?= $produto->id_produto ?>">alterar</a></td>
         <td><a href="/controle/excluiregistro?id=<?= $produto->id_produto ?>&username=<?= $produto->username?>">Excluir</a></td>
       </tr>
     <?php endforeach; ?>
