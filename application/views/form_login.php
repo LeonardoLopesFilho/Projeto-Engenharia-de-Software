@@ -1,6 +1,6 @@
-
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="<?php echo base_url("assests/indexcss.css");?>">
@@ -63,6 +63,11 @@ input[type=number], select {
     background-color: #f2f2f2;
     padding: 20px;
   }
+  div.returnToHome {
+    margin: 5px; 
+    background-color: unset; 
+  }
+
   h1.titulos{
     text-align:center;
     color: rgb(0, 0, 0);
@@ -176,6 +181,11 @@ input[type=number], select {
       </form>
       </tr></td>
     </table>
+    <!-- Envia para a HOME -->
+    <div class="returnToHome">
+      <a class="btncadas" href="/controle">Voltar para a Home</a>
+    </div>
+
     <footer>
       <p>&copy; Carrara Bar</p>
       <a href='/usuario/form_usuario?tipo=1'>Não é cadastrado? Clique aqui para Cadastrar!!!</a>

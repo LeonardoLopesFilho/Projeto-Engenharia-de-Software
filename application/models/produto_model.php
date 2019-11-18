@@ -1,27 +1,28 @@
 <?php
 /**
  * este arquivo é responsavel por conversar com o banco de dados
+ * Arquivo referente a toda manipulação de dados de "Produto"
  */
-class usuario_model extends CI_Model
+class produto_model extends CI_Model
 {
-    public function listaUsuarios($id = false)
+    public function listaProduto($id = false)
     {
         if ($id) {
-            return $this->db->get_where('usuario', ['id_usuario' => $id])->result(); 
+            return $this->db->get_where('produto', ['id_produto' => $id])->result(); 
         }
         // select * from alunos
-        return $this->db->get('usuario')->result();
+        return $this->db->get('produto')->result();
     }
 
-    public function getUsuarios( $username = false )
+    public function getProduto( $codBarras )
     {
-        $user = $this->db->get_where('usuario', ['username' => $username])->result(); 
-        return $user; 
+        $produto = $this->db->get_where('produto', ['cod_barras' => $codBarras])->result(); 
+        return $produto; 
     }
 
     public function insere($data)
     {
-        return $this->db->insert('usuario', $data);
+        return $this->db->insert('produto', $data);
     }
 
     public function altera($data)
@@ -32,7 +33,7 @@ class usuario_model extends CI_Model
 
     public function deleta($id)
     {
-        return $this->db->delete('usuario', ['id_usuario' => $id]);
+        return $this->db->delete('produto', ['id_produto' => $id]);
     }
 
     // Username esperado no parametro é um array associativo
