@@ -1,19 +1,48 @@
-******** Criar banco chamado ator e ai sim fazer a tabela
+CREATE DATABASE `controle-db`;
+use `controle-db`; 
 
+CREATE TABLE `controle-db`.`usuario` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `cpf` varchar(45) NOT NULL,
+  `nivel_acesso` int(11) NOT NULL,
+  `documento` int(11) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
+); 
 
-
-use ator;
-CREATE TABLE `ator`.`usuario` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
+CREATE TABLE `controle-db`.`cliente` (
+  `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `cpf` VARCHAR(45) NOT NULL,
-  `nivel_acesso` INT NOT NULL,
-  `documento` INT NOT NULL,
-  PRIMARY KEY (`id_usuario`));
+  `rg` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(75) NOT NULL,
+  `data_nascimento` DATE NOT NULL,
+  `email` VARCHAR(75),
+  `username` VARCHAR(75) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
+); 
 
+CREATE TABLE `controle-db`.`produto` (
+  `id_produto` int(11) NOT NULL AUTO_INCREMENT,
+  `cod_barras` varchar(45) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `descricao` varchar(100) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `data_validade` date NOT NULL,
+  `quantidade` float NOT NULL,
+  `valor` float NOT NULL,
+  `fornecedor` int(11) NOT NULL,
+  `flag` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL, 
+  PRIMARY KEY (`id_produto`)
+); 
 
-select * from usuario
+select * from produto;
 
-drop table usuario;
+INSERT INTO `usuario`(`username`,`senha`,`email`,`cpf`,`nivel_acesso`,`documento`)
+VALUES('teste','teste123','teste@email.com','00000000000',5,00000); 
+
+INSERT INTO `cliente`(`cpf`,`rg`,`nome`,`data_nascimento`,`email`,`username`)
+values('00000000000','00000','Teste Teste','1999-12-31','teste@email.com','teste'); 
+
