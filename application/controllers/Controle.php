@@ -31,18 +31,20 @@ class Controle extends CI_Controller
         $this->load->view('formPedido'); 
     }
     public function editar(){
-        $id =$_GET['id'] ?? '';
+        $id = $_GET['id'] ?? null;
         $this->load->model('produto_model');
-        $produto = $this->produto_model->listaProduto($id);
-        //echo '<pre>';
-        //print_r($produto);
-        //echo '</pre>';
-        $this->load->view('formeditar',$produto);
+        $produto = $this->produto_model->ListaProduto($id);
+        //print_r($usuario);
+        $data['produto'] = $produto;
+        $data['id'] = $id;
+        $this->load->view('formeditar',$data);
+        
     }
-    public function salvar($id){
+    public function salvar(){
         $this->load->model('produto_model');
-        $this->produto_model->salvar($id);
-        header("location:/controle/listaProduto?user={$username}");//retorna pra o index
+        $this->produto_model->altera($_POST);
+        $username =$_POST['username'];
+        header("Location: /controle/listaProduto?user={$username}");
     }
     public function cliente()
     {

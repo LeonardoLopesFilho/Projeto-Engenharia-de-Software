@@ -27,8 +27,8 @@ class produto_model extends CI_Model
 
     public function altera($data)
     {
-        $id =$data['id_usuario'];
-        return $this->db->update('usuario',$data, "id_usuario = $id");
+        $id =$data['id_produto'];
+        return $this->db->update('produto',$data, "id_produto = $id");
     }
 
     public function deleta($id)
