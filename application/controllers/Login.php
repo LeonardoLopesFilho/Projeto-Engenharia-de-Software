@@ -12,7 +12,9 @@ class Login extends CI_Controller
     {
         $this->load->model('usuario_model');
         $username =$_POST['username'];
-        $usuario = $this->usuario_model->logarUsuarios($username);
+        $senha =$_POST['senha'];
+        $email =$_POST['email'];
+        $usuario = $this->usuario_model->logarUsuarios($username,$senha,$email);
         if ($usuario->num_rows()==1) {
             header('location:/usuario');
         }else {
